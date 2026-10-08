@@ -28,4 +28,4 @@ stage="$(mktemp -d "$pet_home/.rourou-install.XXXXXX")"
 trap 'rm -rf -- "$stage"' EXIT
 cp "$source_dir/pet.json" "$source_dir/$sprite" "$stage/"
 mv -n "$stage" "$pet_home/rourou"
-printf '%s\n' '已安装肉肉；请在 Codex 的宠物选择界面选择。天气联动不包含在此安装包内。'
+printf '%s\n' '已安装肉肉；请在 Codex 的宠物选择界面选择。'
