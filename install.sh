@@ -7,7 +7,7 @@ root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 source_dir="$root/pet"
 [[ -f "$source_dir/pet.json" ]] || fail '尚未发布正式宠物动画包：缺少 pet/pet.json。设计预览不能安装。'
 [[ ! -L "$source_dir/pet.json" ]] || fail '拒绝符号链接。'
-/usr/bin/plutil -lint "$source_dir/pet.json" >/dev/null || fail 'pet.json 格式错误。'
+/usr/bin/plutil -convert xml1 -o /dev/null "$source_dir/pet.json" || fail 'pet.json 格式错误。'
 id="$(/usr/bin/plutil -extract id raw -o - "$source_dir/pet.json")"
 version="$(/usr/bin/plutil -extract spriteVersionNumber raw -o - "$source_dir/pet.json")"
 sprite="$(/usr/bin/plutil -extract spritesheetPath raw -o - "$source_dir/pet.json")"

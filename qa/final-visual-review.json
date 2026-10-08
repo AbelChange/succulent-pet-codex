@@ -1,0 +1,39 @@
+{
+  "overallok": true,
+  "findings": [
+    {
+      "severity": "resolved",
+      "direction": "247.5",
+      "finding": "Prior wrong vertical quadrant fixed. Now left with modest down; ordered down-left to left progression coherent."
+    },
+    {
+      "severity": "minor",
+      "directions": [
+        "135",
+        "157.5",
+        "247.5",
+        "337.5"
+      ],
+      "finding": "Minor-axis or dominance cues subtle at native size; acceptable with ordered neighboring directions."
+    },
+    {
+      "severity": "none",
+      "finding": "202.5,247.5,315 y18 alpha gaps are exterior space between leaves, not filled-body holes."
+    },
+    {
+      "severity": "minor",
+      "finding": "Small pose changes at cardinal boundaries; no gross identity/scale discontinuity."
+    }
+  ],
+  "source_evidence": [
+    "qa/look-directions.png",
+    "qa/direction-detail-native.png",
+    "qa/row10-alpha-inspection.png",
+    "qa/look-continuity.json",
+    "final/spritesheet-extended.png"
+  ],
+  "scope": "Labelled direction semantics and continuity review only; atlas/cleanup validation supplied separately. No chroma or fringe judgement.",
+  "animation_review": "Nine state rows visually readable and identity consistent in labelled contact sheet; detailed runtime timing not evaluated.",
+  "atlas_sha256": "cae524d2600cf2907af076f49b97a3c5611800c1b5a1b52b5d03873b631a8f33",
+  "revision": "Repaired row 10 and both row boundaries independently reviewed; unchanged row 9 acceptance retained."
+}

@@ -1,0 +1,90 @@
+{
+  "ok": true,
+  "scope": "standard nine animation rows; chroma fringe excluded pending final cleanup",
+  "evidence": [
+    "qa/review.json",
+    "qa/contact-sheet.png",
+    "decoded/review.png",
+    "decoded/jumping.png"
+  ],
+  "findings": [
+    {
+      "severity": "pass",
+      "state": "jumping",
+      "component": "cross-state scale and vertical arc",
+      "finding": "Small genuine whole-pot hop preserved: bottoms 203,200,196,202,203 show takeoff/apex/landing; constant width158–160 matches idle159–165. Jump grounded height183 vs idle198 is restrained 8% difference with consistent pot scale, not prior miniature shrink. No clipping or unintended baseline pop.",
+      "evidence": "Current qa/contact-sheet.png, qa/review.json, decoded/jumping.png."
+    },
+    {
+      "severity": "pass",
+      "state": "review",
+      "component": "semantic animation",
+      "finding": "Current review-v2 retains calm attentive face, alternating focused head tilt, small arm repositioning and partial blink; no abrupt happy/sad/angry mood sequence. Suitable restrained scrutiny loop."
+    },
+    {
+      "severity": "pass",
+      "state": "all",
+      "finding": "Green/pink-tipped fleshy leaves, pale round face, orange clay pot with green sprout emblem, soft 3D lighting and small green arms remain consistent. No severe identity/style drift is visible."
+    },
+    {
+      "severity": "pass",
+      "state": "idle",
+      "finding": "Frames 2/3 provide partial and closed-eye blink and return to open eyes. Idle is not inert; pot baseline remains stable."
+    },
+    {
+      "severity": "pass",
+      "state": "running-right / running-left",
+      "finding": "Right and left orientations are distinct. Alternating tilted and upright pot poses support a subtle rocking cadence. All frame alpha bounds stay off canvas edges; no baseline pop is evident."
+    },
+    {
+      "severity": "pass",
+      "state": "waving",
+      "finding": "Four frames contain small arm position variation, especially raised arm around frame 2, with consistent pot and character scale. Wave amplitude is restrained but legible."
+    },
+    {
+      "severity": "pass",
+      "state": "failed",
+      "finding": "Sad-to-drooping closed-eye poses communicate failure. Frame 4 is visibly wider due to squash, with recovery afterward; consistent identity and stable bottom alignment."
+    },
+    {
+      "severity": "pass",
+      "state": "waiting / running",
+      "finding": "Waiting contains attentive head tilts and blink. Running contains repeated attentive tilt/arm changes suitable for activity; neither has a dramatic scale jump or clipped frame."
+    },
+    {
+      "severity": "pass",
+      "state": "review",
+      "component": "review-v2 extraction",
+      "finding": "All six source poses represented fully without neighboring fragments or clipped leaves/pot. Pot bottom y203 remains constant; output proportions remain consistent across tilts."
+    }
+  ],
+  "conclusion": "Current nine-row standard pack passes visual review: corrected small-hop jump has actual arc and consistent scale; review-v2 semantics coherent. Chroma fringe intentionally excluded pending final cleanup.",
+  "resolved_findings": [
+    {
+      "severity": "error",
+      "state": "jumping",
+      "component": "extraction / normalization",
+      "finding": "Decoded source has a visible rise and fall of the entire potted character, but extracted frames keep the character top at y=5 for all five frames and bottom at y=202/203. The output changes squash/width and facial expression without a real vertical jump.",
+      "smallest_fix": "Re-extract jumping only using shared source scale and preserved relative vertical offsets; do not normalize every frame to full height and bottom alignment.",
+      "evidence": "qa/review.json jumping bboxes: [5,5,187,202], [15,5,176,203], [17,5,174,203], [14,5,177,203], [7,5,185,203]. decoded/jumping.png shows clear source apex.",
+      "resolution": "Stable-slots re-extraction now preserves actual bottom coordinates 203,171,150,176,203."
+    },
+    {
+      "severity": "error",
+      "state": "jumping",
+      "component": "cross-state scale",
+      "finding": "Real vertical arc is now present, but jumping character is much smaller than idle and other rows: constant width 115 versus idle 159–165 (roughly 30% shrink), grounded frame height 126 versus idle 198 (roughly 36% shrink). State entry would cause a conspicuous whole-character scale pop.",
+      "smallest_fix": "Use a consistent character/pot scale across all states with adequate shared top headroom, or reduce jump height while keeping pot/leaf size consistent. Do not enlarge each jump frame independently or bottom-align every frame.",
+      "evidence": "jumping stable-slots bboxes [38,77,153,203], [38,29,153,171], [38,5,153,150], [38,37,153,176], [38,77,153,203]; current qa/contact-sheet.png.",
+      "resolution": "jumping-v2 extraction has matching width158–160px versus idle159–165px; pot bottom y203→200→196→202→203 preserves a 7px small hop."
+    },
+    {
+      "severity": "warning",
+      "state": "review",
+      "component": "semantic animation",
+      "finding": "The full unclipped source and output both sequence stern face, worried tilt, closed eyes, curious tilt, broad smile, stern face. Identity and extraction are stable, but the broad smile and eyes-closed pose weaken a continuous focused review action.",
+      "smallest_fix": "If a focused review state is required, revise this row rather than extraction. It is currently an expression sequence, not an unequivocal review loop.",
+      "resolution": "review-v2 replaces disparate emotions with consistently calm attentive expression, alternating head tilt, arm repositioning and partial blink."
+    }
+  ]
+}

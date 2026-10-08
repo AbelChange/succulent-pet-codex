@@ -1,0 +1,167 @@
+{
+  "ok": true,
+  "directions": [
+    {
+      "direction": "000",
+      "expected": "up",
+      "observed": "up",
+      "verdict": "pass",
+      "horizontal_evidence": "Eyes symmetric; no lateral turn",
+      "vertical_evidence": "Pupils high, face lifted"
+    },
+    {
+      "direction": "022.5",
+      "expected": "up-right, up dominant",
+      "observed": "up with slight right",
+      "verdict": "pass",
+      "horizontal_evidence": "Face and gaze begin moving right",
+      "vertical_evidence": "Eyes remain lifted"
+    },
+    {
+      "direction": "045",
+      "expected": "up-right, balanced",
+      "observed": "up-right",
+      "verdict": "pass",
+      "horizontal_evidence": "Face turned right, pupils favor right",
+      "vertical_evidence": "Pupils in upper half"
+    },
+    {
+      "direction": "067.5",
+      "expected": "up-right, right dominant",
+      "observed": "right with slight up",
+      "verdict": "pass",
+      "horizontal_evidence": "Rightward face and pupils strongest cue",
+      "vertical_evidence": "Upward cue subtle but coherent before horizontal right"
+    },
+    {
+      "direction": "090",
+      "expected": "right",
+      "observed": "right",
+      "verdict": "pass",
+      "horizontal_evidence": "Face and both pupils directed right",
+      "vertical_evidence": "No strong down cue; approximately horizontal"
+    },
+    {
+      "direction": "112.5",
+      "expected": "down-right, right dominant",
+      "observed": "down-right",
+      "verdict": "pass",
+      "horizontal_evidence": "Pupils on right sides",
+      "vertical_evidence": "Lower pupils and head drop"
+    },
+    {
+      "direction": "135",
+      "expected": "down-right, balanced",
+      "observed": "down with slight right",
+      "verdict": "warning",
+      "horizontal_evidence": "Right bias small; both pupils favor viewer right slightly",
+      "vertical_evidence": "Strong low pupils, upper whites visible"
+    },
+    {
+      "direction": "157.5",
+      "expected": "down-right, down dominant",
+      "observed": "down with very slight right",
+      "verdict": "warning",
+      "horizontal_evidence": "Right displacement subtle at native size",
+      "vertical_evidence": "Both pupils low, down dominant"
+    },
+    {
+      "direction": "180",
+      "expected": "down",
+      "observed": "down",
+      "verdict": "pass",
+      "horizontal_evidence": "Symmetric pupils",
+      "vertical_evidence": "Pupils low, whites above"
+    },
+    {
+      "direction": "202.5",
+      "expected": "down-left, down dominant",
+      "observed": "down-left, down dominant",
+      "verdict": "pass",
+      "horizontal_evidence": "Both pupils shift left relative to down anchor",
+      "vertical_evidence": "Pupils low with visible upper whites"
+    },
+    {
+      "direction": "225",
+      "expected": "down-left, balanced",
+      "observed": "down-left",
+      "verdict": "pass",
+      "horizontal_evidence": "Pupils move further left",
+      "vertical_evidence": "Upper eye whites establish down; weaker than 202.5 but coherent"
+    },
+    {
+      "direction": "247.5",
+      "expected": "down-left, left dominant",
+      "observed": "left with modest down",
+      "verdict": "warning",
+      "horizontal_evidence": "Strong left bias in both pupils",
+      "vertical_evidence": "Pupils now low/left with upper whites, unlike prior up-left reading; downward minor cue subtle at native size"
+    },
+    {
+      "direction": "270",
+      "expected": "left",
+      "observed": "left",
+      "verdict": "pass",
+      "horizontal_evidence": "Left pupils and slight left face direction",
+      "vertical_evidence": "Vertical pupils centered relative to repaired 247.5 and 292.5"
+    },
+    {
+      "direction": "292.5",
+      "expected": "up-left, left dominant",
+      "observed": "left with modest up",
+      "verdict": "pass",
+      "horizontal_evidence": "Left pupil placement retained",
+      "vertical_evidence": "Pupils lift above horizontal-left anchor; lower whites appear"
+    },
+    {
+      "direction": "315",
+      "expected": "up-left, balanced",
+      "observed": "up-left",
+      "verdict": "pass",
+      "horizontal_evidence": "Both pupils left of eye centers",
+      "vertical_evidence": "Pupils high; lower whites"
+    },
+    {
+      "direction": "337.5",
+      "expected": "up-left, up dominant",
+      "observed": "up with modest left",
+      "verdict": "warning",
+      "horizontal_evidence": "Left bias subtle; asymmetry between eyes",
+      "vertical_evidence": "Up cue retained; adjacent 315/337.5 changes small"
+    }
+  ],
+  "continuity_resolution": [
+    {
+      "candidate": "202.5,247.5,315 alpha gaps at local y18",
+      "severity": "none",
+      "resolution": "Magenta native crops show open exterior gaps between upper leaf tips; no filled-body holes.",
+      "evidence": "qa/row10-alpha-inspection.png"
+    },
+    {
+      "candidate": "000->022.5 and 090->112.5",
+      "severity": "minor",
+      "resolution": "Existing row 9 minor pose steps retained; no new pixels reviewed or changed."
+    },
+    {
+      "candidate": "157.5->180 boundary",
+      "severity": "minor",
+      "resolution": "Face rises and returns symmetric; pupils remain down. 3.1 percent area difference and 4.6 px center movement are small pose variation.",
+      "evidence": "qa/direction-detail-native.png; qa/look-continuity.json"
+    },
+    {
+      "candidate": "225->247.5->270 quadrant progression",
+      "severity": "minor",
+      "resolution": "Corrected pupils remain down-left at 225/247.5 and become horizontal left at 270. 247.5 downward cue modest but coherent; prior wrong quadrant resolved.",
+      "evidence": "qa/direction-detail-native.png"
+    },
+    {
+      "candidate": "292.5->315 and 337.5->000 seam",
+      "severity": "minor",
+      "resolution": "Up-left then up progression stays in intended quadrant. Slight lifted-face difference at 000; no gross identity or scale change.",
+      "evidence": "qa/direction-detail-native.png; qa/look-continuity.json"
+    }
+  ],
+  "method": "Independent labelled review at native 192x208; alpha candidate inspected using deterministic crop/composite only.",
+  "revision": "Repaired row 10 and both row boundaries independently reviewed; unchanged row 9 acceptance retained.",
+  "atlas_sha256": "cae524d2600cf2907af076f49b97a3c5611800c1b5a1b52b5d03873b631a8f33"
+}
