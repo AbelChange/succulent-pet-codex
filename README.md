@@ -22,7 +22,7 @@
 
 **方式二：一条命令（需要 Git）**
 
-    git clone https://github.com/AbelChange/succulent.git && bash succulent/install.sh
+    git clone https://github.com/AbelChange/succulent-pet-codex.git && bash succulent-pet-codex/install.sh
 
 安装完成后：
 
@@ -31,6 +31,8 @@
 3. 在聊天中输入 **/pet** 显示桌面宠物。
 
 脚本安装到本地 pets/rourou 目录，不需要管理员权限，不会自动激活，也不会覆盖已有的肉肉。已有其他宠物可以继续使用。
+
+安装成功只表示资源已复制，仍需要手动选择和显示宠物。详细检查步骤见 [安装排查](docs/安装排查.md)。
 
 ## 常见问题
 

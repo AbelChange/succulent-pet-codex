@@ -29,4 +29,5 @@ stage="$(mktemp -d "$pet_home/.rourou-install.XXXXXX")"
 trap 'rm -rf -- "$stage"' EXIT
 cp "$source_dir/pet.json" "$source_dir/$sprite" "$root/LICENSE" "$stage/"
 mv -n "$stage" "$pet_home/rourou"
-printf '%s\n' '已安装肉肉；请在 Codex 的宠物选择界面选择。'
+printf '已安装到：%s\n' "$pet_home/rourou"
+printf '%s\n' '下一步：在桌面客户端刷新宠物列表，选择肉肉 RouRou，然后使用 /pet 显示。若没有刷新入口，完全退出应用再重新打开。'
