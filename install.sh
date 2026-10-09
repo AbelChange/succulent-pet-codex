@@ -5,6 +5,7 @@ fail() { printf '%s\n' "$*" >&2; exit 1; }
 # Install from a downloaded repository; no remote code execution or sudo needed.
 root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 source_dir="$root/pet"
+[[ -f "$root/LICENSE" && ! -L "$root/LICENSE" ]] || fail '缺少许可文件 LICENSE。'
 [[ -f "$source_dir/pet.json" ]] || fail '尚未发布正式宠物动画包：缺少 pet/pet.json。设计预览不能安装。'
 [[ ! -L "$source_dir/pet.json" ]] || fail '拒绝符号链接。'
 /usr/bin/plutil -convert xml1 -o /dev/null "$source_dir/pet.json" || fail 'pet.json 格式错误。'
@@ -26,6 +27,6 @@ mkdir -p "$pet_home"
 [[ ! -e "$pet_home/rourou" && ! -L "$pet_home/rourou" ]] || fail '肉肉已存在；为保留原素材，本脚本不会覆盖。'
 stage="$(mktemp -d "$pet_home/.rourou-install.XXXXXX")"
 trap 'rm -rf -- "$stage"' EXIT
-cp "$source_dir/pet.json" "$source_dir/$sprite" "$stage/"
+cp "$source_dir/pet.json" "$source_dir/$sprite" "$root/LICENSE" "$stage/"
 mv -n "$stage" "$pet_home/rourou"
 printf '%s\n' '已安装肉肉；请在 Codex 的宠物选择界面选择。'
