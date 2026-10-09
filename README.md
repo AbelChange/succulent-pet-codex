@@ -25,7 +25,3 @@ git clone https://github.com/AbelChange/succulent.git && bash succulent/install.
 
 ## 正式发布前
 制作9种动画与16视线方向，完成透明 v2 精灵图及 hatch-pet 验证，保存动画预览和QA报告。将 pet.json、spritesheet.png/WebP 放到 pet/，并在该目录对这两个文件生成 SHA256SUMS。随后创建版本标签和 GitHub Release；需要在目标应用版本实测安装。
-
-## 使用许可
-
-禁止商用。按 [LICENSE](LICENSE) 允许非商业使用、学习、修改和分享；须保留许可与署名并标明修改。商业用途须另获权利人书面授权。
